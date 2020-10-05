@@ -32,6 +32,7 @@ public class Estanteria<T> {
         try{
             while(estaLlena()){
                 try{
+                    System.out.println("Cola llena, Esperando que se vacíe.");
                     condicionEstaLlena.await();
                 }catch(InterruptedException ex){System.out.println("practica2.Estanteria.encolar()\n" + ex.getMessage());}
             }
@@ -46,6 +47,7 @@ public class Estanteria<T> {
         try{
             while(estaVacia()){
                 try{
+                    System.out.println("Cola vacía, Esperando que lleguen envíos.");
                     condicionestaVacia.await();
                 }catch(InterruptedException ex){System.out.println("practica2.Estanteria.encolar()\n" + ex.getMessage());}
             }
@@ -60,7 +62,5 @@ public class Estanteria<T> {
     }
     private boolean estaVacia(){
         return q.size() == 0;
-    }
-            
-            
+    }       
 }
